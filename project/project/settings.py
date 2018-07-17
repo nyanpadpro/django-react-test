@@ -24,9 +24,7 @@ SECRET_KEY = '-+kfe1sv1ggvc1a$dq48)k7f+7$yt&y7um87=%=ln=!y$xksa3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '9765a2a558ed4c84b0d7a8f9774ad4b0.vfs.cloud9.ap-southeast-1.amazonaws.com'
-]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -102,9 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -120,3 +118,15 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
+
+# 本番用
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+if not DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
