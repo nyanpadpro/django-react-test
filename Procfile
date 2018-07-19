@@ -1,1 +1,1 @@
-web: gunicorn project.wsgi
+web: sh -c 'cd ./directory/ && gunicorn project.wsgi'
