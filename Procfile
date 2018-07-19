@@ -1,1 +1,1 @@
-web: gunicorn django-react-test.wsgi --log-file -
+web: sh -c 'cd project && gunicorn project.wsgi --log-file -'
