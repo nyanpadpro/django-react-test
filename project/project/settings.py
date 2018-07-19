@@ -121,7 +121,9 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, STATIC_URL), )
 
 # 本番用
 DEBUG = False
+ALLOWED_HOSTS = [".herokuapp.com"]
 
+# 個々の設定に切り替え
 try:
     from .local_settings import *
 except ImportError:
@@ -131,6 +133,7 @@ if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
 
+# ロギング
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
