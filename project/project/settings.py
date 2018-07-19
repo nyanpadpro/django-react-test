@@ -115,19 +115,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, STATIC_URL), )
-
-# 本番用
-DEBUG = False
-ALLOWED_HOSTS = [".herokuapp.com"]
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# 本番用
+DEBUG = False
+ALLOWED_HOSTS = [".herokuapp.com"]
 
 # 個々の設定に切り替え
 try:
