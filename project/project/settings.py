@@ -128,7 +128,7 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
 DEBUG = False
 ALLOWED_HOSTS = [".herokuapp.com"]
 
-# 個々の設定に切り替え
+# 本番 or ローカルの設定に切り替え
 try:
     from .local_settings import *
 except ImportError:
